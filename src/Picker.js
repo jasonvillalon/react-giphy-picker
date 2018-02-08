@@ -79,10 +79,10 @@ export default class extends Component {
 
   render() {
     const {gifs} = this.state
-    const {visible, modal} = this.props
+    const {visible, modal, wrapperCSS, gifPickerWrapperCSS, inputCSS} = this.props
     return (
-      <Wrapper>
-        <GiphyPickerWrapper visible={visible} modal={modal}>
+      <Wrapper className={wrapperCSS}>
+        <GiphyPickerWrapper visible={visible} modal={modal} className={gifPickerWrapperCSS}>
           <Input
             name='giphy-search'
             type="text"
@@ -92,7 +92,8 @@ export default class extends Component {
             onChange={::this.onSearchChange}
             value={this.state.searchValue}
             onKeyDown={::this.onKeyDown}
-            placeholder='Search for gifs' />
+            placeholder='Search for gifs'
+            className={inputCSS} />
           <GiphyWrapper>
             {
               gifs.map((g, i) => {
