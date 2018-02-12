@@ -15,19 +15,15 @@ export default class extends Component {
     this.loadTrendingGifs()
   }
 
-  static get propTypes () {
-    return {
-      onSelected: React.PropTypes.func.isRequired,
-      visible: React.PropTypes.bool,
-      modal: React.PropTypes.bool
-    }
+  static propTypes = {
+    onSelected: React.PropTypes.func.isRequired,
+    visible: React.PropTypes.bool,
+    modal: React.PropTypes.bool
   }
 
-  static get defaultProps () {
-    return {
-      visible: true,
-      modal: false
-    }
+  static defaultProps = {
+    visible: true,
+    modal: false
   }
 
   loadTrendingGifs () {
@@ -89,9 +85,9 @@ export default class extends Component {
             autoCapitalize="none"
             autoComplete="off"
             autoCorrect="off"
-            onChange={::this.onSearchChange}
+            onChange={this.onSearchChange}
             value={this.state.searchValue}
-            onKeyDown={::this.onKeyDown}
+            onKeyDown={this.onKeyDown}
             placeholder='Search for gifs'
             className={inputCSS} />
           <GiphyWrapper>
